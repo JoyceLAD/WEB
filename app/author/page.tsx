@@ -54,9 +54,6 @@ const AuthorPage = () => {
             <section>
                     
             </section>
-            <footer className="copyright">
-                <Footer/>
-            </footer>
 
             <style jsx>{`
         button {
