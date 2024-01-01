@@ -9,20 +9,37 @@ import Banner from "../Banner";
 type Props = {
   currentUser?: SafeUser | null;
 };
+const searchStyle = {
+  backgroundImage: 'search-bg.webp',
+}
+const navStyles = {
+  display: 'flex',
+  marginRight: '50px'
+};
+
+const headerStyles = {
+  backgroundColor: '#333',
+  color: 'white',
+  display: 'flex',
+  justifyContent: 'space-between', // Dàn đều các thành phần theo chiều ngang
+  alignItems: 'center', // Canh giữa theo chiều dọc
+};
 
 function Navbar({ currentUser }: Props) {
   return (
-    <div className="fixed w-full bg-white z-10 shadow-sm">
-      <div className="py-4 border-b-[1px]">
-      <Header/>
-        <Container>
+    <>
+      <header style={headerStyles}>
+        <Header />
+        <nav style={navStyles}>
+          <UserMenu currentUser={currentUser} />
+        </nav>
+      </header>
+      <section>
           <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
-            <Search />
-            <UserMenu currentUser={currentUser} />
+            <Search/>
           </div>
-        </Container>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }
 

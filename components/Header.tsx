@@ -67,6 +67,7 @@ const Header = () => {
       </Link>
       <nav style={navStyles}>
       </nav>
+
     </header>
   );
 };
