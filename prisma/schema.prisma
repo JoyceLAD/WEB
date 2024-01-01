@@ -64,7 +64,7 @@ model Comic{
 }
 model Chapter{
     id                     String @id @default(auto()) @map("_id") @db.ObjectId
-    imageurl               String[]
+    imageurl               String
     name                   String
     comicId                String @db.ObjectId
     comic  Comic @relation(fields: [comicId], references: [id], onDelete: Cascade)

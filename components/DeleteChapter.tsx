@@ -1,32 +1,48 @@
-// components/AddComicForm.js
 import React, { useState } from 'react';
-
+import axios from 'axios';
+import { toast } from 'react-toastify';
 const DeleteChapter = () => {
-  const [title, setTitle] = useState('');
-  const [description, setDes] = useState('');
-  const [numberOfChapters, setNumberOfChapters] = useState('');
-  const [image, setImage] = useState('');
+  const [name, setname] = useState('');
+  const [comicId, setcomicId] = useState('');
+
 
   const handleSubmit = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
     // Xử lý dữ liệu biểu mẫu ở đây (nếu cần)
-    console.log('Form submitted:', { title, description, numberOfChapters, image });
+    console.log('Form submitted:', { name ,comicId});
+    const data = { name, comicId }
+    
+    axios.post("/api/deleteChapter", data).then(()=>{
+      toast.success("Success")
+    }).catch((error:any) =>{
+      toast.error("Something Went Wrong")
+    })
   };
+
 
   return (
     <div className='margin'>
       <form onSubmit={handleSubmit} >
-        <label htmlFor="title" className='dhstyle'>Name of the comic:</label>
+        <label htmlFor="title" className='dhstyle'>Name: </label>
         <input
           type="text"
           id="title"
           name="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={name}
+          onChange={(e) => setname(e.target.value)}
+          required
+        />
+        <label htmlFor="title" className='dhstyle'>Comic ID: </label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value={comicId}
+          onChange={(e) => setcomicId(e.target.value)}
           required
         />
 
-        <label htmlFor="des" className='dhstyle'>Description:</label>
+        {/* <label htmlFor="des" className='dhstyle'>Content: </label>
         <textarea
           id="des"
           name="des"
@@ -34,27 +50,17 @@ const DeleteChapter = () => {
           onChange={(e) => setDes(e.target.value)}
           rows={4}
           required
-        ></textarea>
+        ></textarea> */}
 
-        <label htmlFor="numberOfChapters" className='dhstyle'>Number of Chapters:</label>
-        <input
-          type="number"
-          id="numberOfChapters"
-          name="numberOfChapters"
-          value={numberOfChapters}
-          onChange={(e) => setNumberOfChapters(e.target.value)}
-          required
-        />
-
-        <label htmlFor="image" className='dhstyle'>Image URL: </label>
+        {/* <label htmlFor="image" className='dhstyle'>Image URL: </label>
         <input
           type="url"
           id="image"
           name="image"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
+          value={imageurl}
+          onChange={(e) => setimageurl(e.target.value)}
           required
-        />
+        /> */}
 
         <button type="submit">Submit</button>
       </form>
@@ -87,7 +93,6 @@ const DeleteChapter = () => {
         .dhstyle{
             color: white;
             fontFamily: Dancing Script;
-            font-size: 16px;
         }
 
         button:hover {
@@ -99,6 +104,6 @@ const DeleteChapter = () => {
       `}</style>
     </div>
   );
-};
+      }
 
 export default DeleteChapter;

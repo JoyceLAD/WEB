@@ -15,6 +15,7 @@ const AuthorPage = () => {
     return (
         <>
             <section style={sectionStyles}>
+                <button className="btn btn-success" onClick={() => router.push('/author/AuthorComic')}>Danh sách truyện đã đăng</button>
                 <button className="btn btn-success" onClick={() => router.push('/author/AddComic')}>Thêm Truyện</button>
                 <button className="btn btn-success" onClick={() => router.push('/author/addchapter')}>Thêm Chapter</button>
                 <button className="btn btn-success" onClick={() => router.push('/author/deletecomic')}>Xóa Truyện</button>
