@@ -8,7 +8,7 @@ const PATH = {
 };
 
 
-const Search = () => {
+const SearchBar= () => {
   const router = useRouter()
   const [valueForm, setValueForm] = useState<string>('');
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -76,4 +76,4 @@ const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
   );
 };
 
-export default Search;
+export default SearchBar;
