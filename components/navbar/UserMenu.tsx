@@ -43,7 +43,7 @@ function UserMenu({ currentUser }: Props) {
           className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
           onClick={onRent}
         >
-          Airbnb your Home
+          Comic Website
         </div>
         <div
           onClick={toggleOpen}
@@ -82,7 +82,9 @@ function UserMenu({ currentUser }: Props) {
                   onClick={() => router.push("/author")}
                   label="Quản lý truyện "
                 />
-                <MenuItem onClick={onRent} label="Home" />
+                <MenuItem 
+                    onClick={() => router.push("/admin")}
+                    label="Quản lý người dùng" />
                 <hr />
                 <MenuItem onClick={() => signOut()} label="Logout" />
               </>
