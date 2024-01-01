@@ -1,28 +1,23 @@
 // components/AddComicForm.js
-import axios from 'axios';
-import { error } from 'console';
-import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+import axios from 'axios';
 import { toast } from 'react-toastify';
-
-const AddComicForm = () => {
+const DeleteComic = () => {
   const [title, setTitle] = useState('');
-  const [desc, setDes] = useState('');
   const [NumberChapter, setNumberOfChapters] = useState('');
-  const [image, setImage] = useState('');
-  
+
   const handleSubmit = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
     // Xử lý dữ liệu biểu mẫu ở đây (nếu cần)
-    console.log('Form submitted:', { title, desc, NumberChapter, image });
+    console.log('Form submitted:', { title, NumberChapter });
+    const dt = {title , NumberChapter}
 
-    const data = {title, desc, NumberChapter, image}
-    
-    axios.post("/api/createComic", data).then(()=>{
-      toast.success("Success")
-    }).catch((error:any) =>{
-      toast.error("Something Went Wrong")
-    })
+    axios.delete(`/api/deleteComic`, {data:dt}).then(()=>{
+        toast.success("Success")
+      }).catch((error:any) =>{
+        toast.error("Something Went Wrong")
+      })
+  
   };
 
   return (
@@ -37,17 +32,6 @@ const AddComicForm = () => {
           onChange={(e) => setTitle(e.target.value)}
           required
         />
-
-        <label htmlFor="des" className='dhstyle'>Description:</label>
-        <textarea
-          id="des"
-          name="des"
-          value={desc}
-          onChange={(e) => setDes(e.target.value)}
-          rows={4}
-          required
-        ></textarea>
-
         <label htmlFor="numberOfChapters" className='dhstyle'>Number of Chapters:</label>
         <input
           type="number"
@@ -55,16 +39,6 @@ const AddComicForm = () => {
           name="numberOfChapters"
           value={NumberChapter}
           onChange={(e) => setNumberOfChapters(e.target.value)}
-          required
-        />
-
-        <label htmlFor="image" className='dhstyle'>Image URL: </label>
-        <input
-          type="url"
-          id="image"
-          name="image"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
           required
         />
 
@@ -113,4 +87,4 @@ const AddComicForm = () => {
   );
 };
 
-export default AddComicForm;
+export default DeleteComic;

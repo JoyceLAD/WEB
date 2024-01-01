@@ -5,8 +5,8 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   const body = await request.json();
-  const {title, desc, NumberChapte, image} = body;
-  const NumberChapter = parseInt(NumberChapte)
+  const {title, desc, NumberChapter, image} = body;
+  console.log(NumberChapter)
   const user = await getCurrentUser()
   const authorId = user?.id
   const comic = await prisma.comic.create({
