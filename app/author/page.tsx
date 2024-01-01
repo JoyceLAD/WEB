@@ -31,8 +31,9 @@ const h1_style = {
 };
 
 const sectionStyles = {
-    backgroundColor: '#235',
-    // margin: ' 20px 60px 20px 60px ',
+    // backgroundColor: '#476',
+    // backgroundImage: 'search-bg.webp',
+    margin:'10px 60px 0 60px'
 };
 
 
@@ -40,13 +41,6 @@ const AuthorPage = () => {
     const router = useRouter();
     return (
         <>
-            <header>
-                <Link href="/" style={logoStyles} >
-                    <img src="/logo-256x256.png" alt="Logo" style={logoImgStyles} />
-                    VcComic
-                </Link>
-                <h1 style={h1_style}>Author Dashboard</h1>
-            </header>
             <section style={sectionStyles}>
                 <button className="btn btn-success" >Thêm Chapter</button>
                 <button className="btn btn-success" >Thêm Nội Dung</button>
@@ -125,8 +119,8 @@ const AuthorPage = () => {
           background-color: #5cb85c;
           color: #fff;
           margin-left: 80px;
-          margin-top:20px;
-          margin-bottom: 20px;
+          margin-top: 10px;
+          margin-bottom: 10px;
         }
 
         .btn-warning {

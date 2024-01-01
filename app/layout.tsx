@@ -8,9 +8,9 @@ import "../styles/globals.css";
 import getCurrentUser from "./actions/getCurrentUser";
 import Banner from "@/components/Banner";
 export const metadata = {
-  title: "Airbnb Clone",
-  description: "Airbnb Clone",
-  icons: "https://www.seekpng.com/png/full/957-9571167_airbnb-png.png",
+  title: "Nhóm 16",
+  description: "Web đọc truyện tranh",
+  icons: "https://th.bing.com/th/id/R.b1fcde4824661c9b4d7f7b3083371fa2?rik=JvzQgjmrNOcYJw&pid=ImgRaw&r=0",
 };
 
 const font = Nunito({
@@ -33,7 +33,7 @@ export default async function RootLayout({
           <LoginModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
-        <div className="pb-20 pt-28">{children}</div>
+        <div>{children}</div>
       </body>
     </html>
   );
