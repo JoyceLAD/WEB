@@ -4,6 +4,7 @@ import EmptyState from "@/components/EmptyState";
 import ListingCard from "@/components/listing/ListingCard";
 import getCurrentUser from "./actions/getCurrentUser";
 import getListComic, { IdComicList } from "./actions/getListComic";
+import Banner from "@/components/Banner";
 
 interface HomeProps {
   searchParams: IdComicList;
@@ -23,7 +24,10 @@ export default async function Home({ searchParams }: HomeProps) {
 
   return (
     <ClientOnly>
-      <Container>
+      <section>
+        <Banner/>
+      </section>
+      <section>
         <div className="pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-8 overflow-x-hidden">
           {listing.map((list) => {
             return (
@@ -35,7 +39,7 @@ export default async function Home({ searchParams }: HomeProps) {
             );
           })}
         </div>
-      </Container>
+      </section>
     </ClientOnly>
   );
 }
