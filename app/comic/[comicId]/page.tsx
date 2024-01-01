@@ -5,6 +5,9 @@ import EmptyState from "@/components/EmptyState";
 import ListComicClient from "@/components/ListComicClient";
 import ListingHead from "@/components/listing/ListingHead";
 import Container from "@/components/Container";
+import ChapterCard from "@/components/Chapter/ChapterCard";
+import getListChapter from "@/app/actions/getListChapterOfComic";
+
 interface IParams {
   comicId?: string;
 }
@@ -12,6 +15,7 @@ interface IParams {
 const ComicPage = async ({ params }: { params: IParams }) => {
   const comicInfo = await getComicbyId(params);
   const currentUser = await getCurrentUser();
+  let chapterInfo = []
   if (!comicInfo) {
     return (
       <ClientOnly>
@@ -19,6 +23,9 @@ const ComicPage = async ({ params }: { params: IParams }) => {
       </ClientOnly>
     );
   }
+  chapterInfo = await getListChapter(params)
+  console.log(params)
+  console.log(chapterInfo)
   let title1 = comicInfo.title
   let imgSrc1 = comicInfo.image
   let desc1 = comicInfo.desc
@@ -33,7 +40,7 @@ const ComicPage = async ({ params }: { params: IParams }) => {
   if(!title1)
        title1 = "NULL"
 
-
+console.log(chapterInfo)
 
   return (
     <ClientOnly>
@@ -53,17 +60,26 @@ const ComicPage = async ({ params }: { params: IParams }) => {
           </div>
         </div>
       </div>
-    </Container>
-    <h1 style={{
+      <h1 style={{
  
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: '100vh'
+ alignItems: 'center',
+ justifyContent: 'center',
+ height: '100vh'
 }}>
-  {title1}
+ {title1}
 </h1>
-
+    </Container>
+    {chapterInfo.map((list) => {
+        return (
+          <ChapterCard
+            key={list.id}
+            data={list}
+            currentUser={currentUser}
+          />
+        );
+      })}
     </ClientOnly>
+  
   );
 };
 

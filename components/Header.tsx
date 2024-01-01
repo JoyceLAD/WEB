@@ -65,6 +65,9 @@ const Header = () => {
       <img src="/logo-256x256.png" alt="Logo" style={logoImgStyles} />
         VcComic
       </Link>
+      <nav style={navStyles}>
+      </nav>
+
     </header>
   );
 };

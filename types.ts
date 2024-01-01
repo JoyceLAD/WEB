@@ -1,6 +1,9 @@
-import { Comic, User } from "@prisma/client";
+import { Chapter, Comic, User } from "@prisma/client";
 
 export type SafeComic = Omit<Comic, "createdAt"> & {
+  createdAt: string;
+};
+export type SafeChapter = Omit<Chapter, "createdAt"> & {
   createdAt: string;
 };
 
