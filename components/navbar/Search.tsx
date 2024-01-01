@@ -16,7 +16,7 @@ const Search = () => {
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (valueForm !== '') {
-      router.push(`/Search/${valueForm}`)
+      router.push(`/Search/?${valueForm}`)
     }
     setValueForm('');
   };

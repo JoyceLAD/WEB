@@ -8,9 +8,9 @@ import "../styles/globals.css";
 import getCurrentUser from "./actions/getCurrentUser";
 import Banner from "@/components/Banner";
 export const metadata = {
-  title: "Nhóm 16",
-  description: "Web đọc truyện tranh",
-  icons: "https://img.lovepik.com/element/40129/7570.png_1200.png",
+  title: "Airbnb Clone",
+  description: "Airbnb Clone",
+  icons: "https://www.seekpng.com/png/full/957-9571167_airbnb-png.png",
 };
 
 const font = Nunito({

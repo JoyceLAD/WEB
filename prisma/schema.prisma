@@ -20,12 +20,14 @@ model User{
     createdAt              DateTime @default(now())
     updatedAt              DateTime @updatedAt
     followId               String[] @db.ObjectId
+    history                String[] @db.ObjectId
     point                  Int @default(0)
     emailVerified          DateTime?
     role                   ROLE 
     accounts               Account[]
     comics                 Comic[]
     advers                 adver[]
+    
 }
 model Account {
   id                String  @id @default(auto()) @map("_id") @db.ObjectId
