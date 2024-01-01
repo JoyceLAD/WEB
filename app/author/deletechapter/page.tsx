@@ -45,12 +45,12 @@ const AuthorPage = () => {
             <section style={sectionStyles}>
                 <button className="btn btn-success" onClick={() => router.push('/author/addcomic')}>Thêm Truyện</button>
                 <button className="btn btn-success" onClick={() => router.push('/author/addchapter')}>Thêm Chapter</button>
-                <button className="btn btn-success" onClick={() => router.push('/author/addcomic')}>Xóa Truyện</button>
-                <button className="btn btn-success" onClick={() => router.push('/author/addcomic')}>Xóa Chapter</button>
+                <button className="btn btn-success" onClick={() => router.push('/author/deletecomic')}>Xóa Truyện</button>
+                <button className="btn btn-success" onClick={() => router.push('/author/deletechapter')}>Xóa Chapter</button>
             </section>
 
             <section>
-                <DeleteChapter/>
+                
             </section>
 
             <style jsx>{`
