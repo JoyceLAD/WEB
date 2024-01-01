@@ -6,7 +6,13 @@ import getFollowbyId from "../actions/getFollowListbyId";
 import FollowList from "./Follow";
 
 type Props = {};
-
+const h1_style = {
+  display: 'flex',
+  margin: ' 30px 30px 20px 85px ',
+  fontFamily: 'Dancing Script, cursive, Lobster, sans-serif, Arial',
+  fontSize: '2rem',
+  color: 'rgb(235, 84, 96)',
+};
 const FollowPage = async (props: Props) => {
   const currentUser = await getCurrentUser();
   const comic = await getFollowbyId();
@@ -32,6 +38,7 @@ const FollowPage = async (props: Props) => {
 
   return (
     <ClientOnly>
+      <h1 style={h1_style}>Danh sách truyện đã theo dõi</h1>
       <FollowList comic={comic} currentUser={currentUser} />
     </ClientOnly>
   );

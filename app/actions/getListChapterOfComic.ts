@@ -20,6 +20,7 @@ export default async function getListChapter(params:IdChapterList) {
             createdAt:"desc"
         }
     })
+    console.log(ListComic)
     const safeListings = ListComic.map((list) => ({
         ...list,
         createdAt: list.createdAt.toISOString(),

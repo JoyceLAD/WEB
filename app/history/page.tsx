@@ -6,6 +6,13 @@ import getFollowbyId from "../actions/getFollowListbyId";
 import HistoryList from "./history";
 
 type Props = {};
+const h1_style = {
+  display: 'flex',
+  margin: ' 30px 30px 20px 85px ',
+  fontFamily: 'Dancing Script, cursive, Lobster, sans-serif, Arial',
+  fontSize: '2rem',
+  color: 'rgb(235, 84, 96)',
+};
 
 const Historypage = async (props: Props) => {
   const currentUser = await getCurrentUser();
@@ -22,6 +29,8 @@ const Historypage = async (props: Props) => {
   if (comic.length === 0) {
     return (
       <ClientOnly>
+              <h1 style={h1_style}>Lịch sử: </h1>
+
         <EmptyState
           title="No follow comic found"
           subtitle="Looks like you have follow listings."
@@ -32,6 +41,7 @@ const Historypage = async (props: Props) => {
 
   return (
     <ClientOnly>
+      <h1 style={h1_style}>Lịch sử </h1>
       <HistoryList comic={comic} currentUser={currentUser} />
     </ClientOnly>
   );

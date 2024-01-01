@@ -10,6 +10,14 @@ import Footer from "@/components/Footer";
 interface HomeProps {
   searchParams: IdComicList;
 }
+const h1_style = {
+  display: 'flex',
+  margin: ' 30px 10px 10px ',
+  fontFamily: 'Dancing Script, cursive, Lobster, sans-serif, Arial',
+  fontSize: '2rem',
+  color: 'rgb(235, 84, 96)',
+};
+
 
 export default async function Home({ searchParams }: HomeProps) {
   const listing = await getListComic(searchParams);
@@ -26,10 +34,14 @@ export default async function Home({ searchParams }: HomeProps) {
 
   return (
     <ClientOnly>
-      
       <Container>
+      <h1 style={h1_style}>
+                        VcComic đề cử cho bạn
+                    </h1>
       <Banner/>
-        <div className="pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-8 overflow-x-hidden">
+      <h1 style={h1_style}>Mới cập nhật</h1>
+
+        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-8 overflow-x-hidden">
           {listing.map((list) => {
             return (
               <ListingCard

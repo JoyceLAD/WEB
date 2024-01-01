@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
-import DeleteComic from "@/components/DeleteComic";
+import DeleteUser from "@/components/DeleteUser";
 const sectionStyles = {
     // backgroundColor: '#476',
     // backgroundImage: 'search-bg.webp',
@@ -10,19 +10,19 @@ const sectionStyles = {
 };
 
 
-const AuthorPage = () => {
+const AdminPage = () => {
     const router = useRouter();
     return (
         <>
-            <section style={sectionStyles}>
+            {/* <section style={sectionStyles}>
                 <button className="btn btn-success" onClick={() => router.push('/author/addcomic')}>Thêm Truyện</button>
                 <button className="btn btn-success" onClick={() => router.push('/author/addchapter')}>Thêm Chapter</button>
                 <button className="btn btn-success" onClick={() => router.push('/author/deletecomic')}>Xóa Truyện</button>
                 <button className="btn btn-success" onClick={() => router.push('/author/deletechapter')}>Xóa Chapter</button>
-            </section>
+            </section> */}
 
             <section>
-                <DeleteComic/>
+                <DeleteUser/>
             </section>
 
             <style jsx>{`
@@ -51,7 +51,7 @@ const AuthorPage = () => {
 
     )
 }
-export default AuthorPage;
+export default AdminPage;
 
 
 

@@ -7,6 +7,13 @@ import FollowList from "../Follow/Follow";
 import getCurrentUser from "../actions/getCurrentUser";
 import { NextApiRequest } from "next";
 import ListingCard from "@/components/listing/ListingCard";
+const h1_style = {
+  display: 'flex',
+  margin: ' 30px 30px 20px 85px ',
+  fontFamily: 'Dancing Script, cursive, Lobster, sans-serif, Arial',
+  fontSize: '2rem',
+  color: 'rgb(235, 84, 96)',
+};
 
 const SearchPage =async (req: NextApiRequest) => {
     const params = req.query
@@ -22,7 +29,8 @@ const SearchPage =async (req: NextApiRequest) => {
 
     return(
         <ClientOnly>
-        <div className="pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-8 overflow-x-hidden">
+          <h1 style={h1_style}>Kết quả tìm kiếm</h1>
+        <div className="pl-20  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-8 overflow-x-hidden">
           {searchresult.map((list) => {
             return (
               <ListingCard
