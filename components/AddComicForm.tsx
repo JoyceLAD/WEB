@@ -1,16 +1,27 @@
 // components/AddComicForm.js
+import axios from 'axios';
+import { error } from 'console';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const AddComicForm = () => {
   const [title, setTitle] = useState('');
-  const [description, setDes] = useState('');
-  const [numberOfChapters, setNumberOfChapters] = useState('');
+  const [desc, setDes] = useState('');
+  const [NumberChapter, setNumberOfChapters] = useState('');
   const [image, setImage] = useState('');
-
+  
   const handleSubmit = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
     // Xử lý dữ liệu biểu mẫu ở đây (nếu cần)
-    console.log('Form submitted:', { title, description, numberOfChapters, image });
+    console.log('Form submitted:', { title, desc, NumberChapter, image });
+
+    const data = {title, desc, NumberChapter, image}
+    axios.post("/api/createComic", data).then(()=>{
+      toast.success("Success")
+    }).catch((error:any) =>{
+      toast.error("Something Went Wrong")
+    })
   };
 
   return (
@@ -30,7 +41,7 @@ const AddComicForm = () => {
         <textarea
           id="des"
           name="des"
-          value={description}
+          value={desc}
           onChange={(e) => setDes(e.target.value)}
           rows={4}
           required
@@ -41,7 +52,7 @@ const AddComicForm = () => {
           type="number"
           id="numberOfChapters"
           name="numberOfChapters"
-          value={numberOfChapters}
+          value={NumberChapter}
           onChange={(e) => setNumberOfChapters(e.target.value)}
           required
         />
