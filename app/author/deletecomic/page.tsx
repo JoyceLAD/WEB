@@ -2,8 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
-import Footer from "@/components/Footer";
-import AddComicForm from "@/components/AddComicForm";
+import DeleteComicForm from "@/components/DeleteComic";
 
 const logoStyles = {
     marginLeft: '40px',
@@ -46,12 +45,12 @@ const AuthorPage = () => {
             <section style={sectionStyles}>
                 <button className="btn btn-success" onClick={() => router.push('/author/addcomic')}>Thêm Truyện</button>
                 <button className="btn btn-success" onClick={() => router.push('/author/addchapter')}>Thêm Chapter</button>
-                <button className="btn btn-success" onClick={() => router.push('/author/deletecomic')}>Xóa Truyện</button>
-                <button className="btn btn-success" onClick={() => router.push('/author/deletechapter')}>Xóa Chapter</button>
+                <button className="btn btn-success" onClick={() => router.push('/author/addcomic')}>Xóa Truyện</button>
+                <button className="btn btn-success" onClick={() => router.push('/author/addcomic')}>Xóa Chapter</button>
             </section>
 
             <section>
-                <AddComicForm/>
+                <DeleteComicForm />
             </section>
 
             <style jsx>{`
@@ -75,21 +74,16 @@ const AuthorPage = () => {
         .footer{
             position: bottom;
         }
-        .container {
-            position: relative;
-        }
-        .copyright {
-            position: relative;
-            bottom: 0;
-            right:0;
-            left:0;
-        }
-        
-
       `}</style>
         </>
 
     )
 }
 export default AuthorPage;
+
+
+
+
+
+
 
