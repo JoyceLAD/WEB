@@ -53,7 +53,7 @@ model Comic{
     updatedAt              DateTime @updatedAt
     title                  String?
     desc                   String?
-    NumberChapter          Int?
+    NumberChapter          String?
     image                  String?
     chapters               Chapter[]
     

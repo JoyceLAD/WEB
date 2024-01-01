@@ -15,6 +15,7 @@ const sectionStyles = {
 
 
 const AuthorPage = () => {
+    
     const router = useRouter();
     return (
         <>
