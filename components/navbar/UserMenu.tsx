@@ -16,7 +16,9 @@ import MenuItem from "./MenuItem";
 type Props = {
   currentUser?: SafeUser | null;
 };
-
+const style = {
+  color: 'black'
+}
 function UserMenu({ currentUser }: Props) {
   const router = useRouter();
   const registerModel = useRegisterModal();
@@ -70,28 +72,40 @@ function UserMenu({ currentUser }: Props) {
           <div className="flex flex-col cursor-pointer">
             {currentUser ? (
               <>
+              <div style={style}>
                 <MenuItem
                   onClick={() => router.push("/Follow")}
                   label="Danh sách theo dõi"
                 />
+              </div>
+              <div style={style}>
                 <MenuItem
                   onClick={() => router.push("/history")}
                   label="Lịch sử"
                 />
+              </div>
+              <div style={style}>
                 <MenuItem
                   onClick={() => router.push("/author")}
                   label="Quản lý truyện "
                 />
+              </div>
+              <div style={style}>
                 <MenuItem 
                     onClick={() => router.push("/admin")}
                     label="Quản lý người dùng" />
                 <hr />
                 <MenuItem onClick={() => signOut()} label="Logout" />
+              </div>
               </>
             ) : (
               <>
-                <MenuItem onClick={loginModel.onOpen} label="Login" />
+              <div style={style}>
+                <MenuItem onClick={loginModel.onOpen} label="Login"/>
+              </div>
+              <div style={style}>
                 <MenuItem onClick={registerModel.onOpen} label="Sign up" />
+              </div>
               </>
             )}
           </div>

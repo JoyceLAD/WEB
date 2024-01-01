@@ -13,7 +13,7 @@ const Search = () => {
   const [valueForm, setValueForm] = useState<string>('');
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (valueForm !== '') {
       router.push(`/Search/?${valueForm}`)
