@@ -66,25 +66,6 @@ const Header = () => {
         VcComic
       </Link>
       <nav style={navStyles}>
-        <Link href="/" style={navItemStyles}>
-          Trang chủ
-        </Link>
-        {/* <Link href="/categories" style={navItemStyles}>
-         Thể Loại
-        </Link>
-        <Link href="/new" style={navItemStyles}>
-          Mới
-        </Link>
-        <Link href="/ranking" style={navItemStyles} >
-          Bảng Xếp Hạng
-        </Link> */}
-        <Link href="/login" style={navItemStyles} >
-          Login
-        </Link>
-        <Link href="/register" style={navItemStyles} >
-          Register
-        </Link>
-
       </nav>
     </header>
   );
