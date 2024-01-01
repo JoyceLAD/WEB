@@ -4,33 +4,6 @@ import { useState } from "react";
 import { useRouter } from 'next/navigation';
 import AddChapterForm from "@/components/AddChapterForm";
 
-const logoStyles = {
-    marginLeft: '40px',
-    fontSize: '2.0rem',
-    fontWeight: 'bold',
-    textDecoration: 'none',
-    fontFamily: 'Dancing Script, cursive, Lobster, sans-serif, Arial',
-    color: 'black',
-    display: 'flex', // Thêm display: 'flex' để chứa hình ảnh và văn bản trong cùng một hàng
-    alignItems: 'center', // Canh giữa theo chiều dọc
-};
-
-const logoImgStyles = {
-    width: '50px', // Điều chỉnh kích thước hình ảnh
-    height: '50px',
-    marginRight: '10px', // Khoảng cách giữa hình ảnh và văn bản
-    display: 'flex',
-};
-
-const h1_style = {
-    color: 'black',
-    fontFamily: 'Dancing Script, cursive, Lobster, sans-serif, Arial',
-    display: 'flex',
-    fontSize: '2.0rem',
-    fontStyle: 'bold',
-    marginRight: '200px',
-};
-
 const sectionStyles = {
     // backgroundColor: '#476',
     // backgroundImage: 'search-bg.webp',

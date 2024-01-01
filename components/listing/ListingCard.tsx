@@ -8,6 +8,9 @@ import { useRouter } from "next/navigation";
 import React, { useCallback, useMemo } from "react";
 import Button from "../Button";
 import HeartButton from "../HeartButton";
+const dhStyles = {
+  color:'white'
+};
 
 type Props = {
   data: SafeComic;
@@ -17,6 +20,7 @@ type Props = {
   actionId?: string;
   currentUser?: SafeUser | null;
 };
+
 
 function ListingCard({
   data,
@@ -51,8 +55,7 @@ function ListingCard({
         ease: [0, 0.71, 0.2, 1.01],
       }}
       onClick={() => router.push(`/comic/${data.id}`)}
-      className="col-span-1 cursor-pointer group"
-    >
+      className="col-span-1 cursor-pointer group">
       <div className="flex flex-col gap-2 w-full">
         <div className="aspect-square w-full relative overflow-hidden rounded-xl">
           <Image
@@ -61,7 +64,7 @@ function ListingCard({
             src={src1}
             alt="listing"
           />
-          <div className="absolute top-3 right-3">
+          <div className="absolute top-3 right-3" style={dhStyles}>
             <HeartButton comicId={data.id} currentUser={currentUser} />
           </div>
         </div>
@@ -71,9 +74,9 @@ function ListingCard({
         <div className="font-light text-neutral-500">
           {data.title}
         </div>
-        <div className="flex flex-row items-center gap-">
-          <div className="flex gap-1 font-semibold">
-          {<div className="font-light">Số lượng chapter</div>}{data.NumberChapter} 
+        <div className="flex flex-row items-center gap-" >
+          <div className="flex gap-1 font-semibold" style={dhStyles}>
+          {<div className="font-light" >Số lượng chapter</div>}{data.NumberChapter} 
           </div>
         </div>
         {onAction && actionLabel && (
