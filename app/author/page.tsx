@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
+import Footer from "@/components/Footer";
 
 const logoStyles = {
     marginLeft: '40px',
@@ -33,7 +34,7 @@ const h1_style = {
 const sectionStyles = {
     // backgroundColor: '#476',
     // backgroundImage: 'search-bg.webp',
-    margin:'10px 60px 0 60px'
+    margin: '10px 60px 0 60px'
 };
 
 
@@ -42,61 +43,22 @@ const AuthorPage = () => {
     return (
         <>
             <section style={sectionStyles}>
+                <button className="btn btn-success" >Thêm Truyện</button>
                 <button className="btn btn-success" >Thêm Chapter</button>
-                <button className="btn btn-success" >Thêm Nội Dung</button>
-                <button className="btn btn-success" >Sửa chapter</button>
-                <button className="btn btn-success" >Sửa Nội Dung</button>
+                <button className="btn btn-success" >Sửa Truyện</button>
+                <button className="btn btn-success" >Sửa Chapter</button>
+                <button className="btn btn-success" >Xóa Truyện</button>
                 <button className="btn btn-success" >Xóa Chapter</button>
-                <button className="btn btn-success" >Xóa Nội Dung</button>
             </section>
 
+            <section>
+                    
+            </section>
+            <footer className="copyright">
+                <Footer/>
+            </footer>
+
             <style jsx>{`
-        body {
-          font-family: 'Arial', sans-serif;
-          margin: 0;
-          padding: 0;
-          display: grid;
-          grid-template-rows: auto 1fr auto;
-          min-height: 100vh;
-        }
-
-        header {
-          background-color: #333;
-          color: #fff;
-          padding: 1rem;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          background-image: url('search-bg.webp');
-        }
-
-        .logo-container {
-          display: flex;
-          align-items: center;
-        }
-
-        .logo {
-          max-width: 50px;
-          margin-right: 1rem;
-        }
-
-        .dashboard-title {
-          margin: 0;
-          text-align: center;
-          flex-grow: 1;
-        }
-
-        .search-bar {
-          display: flex;
-          align-items: center;
-        }
-
-        input {
-          padding: 0.5rem;
-          font-size: 1rem;
-          margin-right: 0.5rem;
-        }
-
         button {
           padding: 0.5rem 1rem;
           font-size: 1rem;
@@ -107,14 +69,6 @@ const AuthorPage = () => {
           margin-left: 60px;
           margin-bottom: 20px;
         }
-
-        .btn-info {
-          background-color: #5bc0de;
-          color: #fff;
-          margin-left: 50px;
-          margin-top:20px;
-        }
-
         .btn-success {
           background-color: #5cb85c;
           color: #fff;
@@ -122,35 +76,21 @@ const AuthorPage = () => {
           margin-top: 10px;
           margin-bottom: 10px;
         }
-
-        .btn-warning {
-          background-color: #f0ad4e;
-          color: #fff;
-          margin-left: 50px;
-          margin-top:20px;
+        .footer{
+            position: bottom;
         }
-
-        .btn-error {
-          background-color: #d9534f;
-          color: #fff;
-          margin-left: 50px;
-          margin-top:20px;
+        .container {
+            position: relative;
         }
-
-        main {
-          padding: 1rem;
+        .copyright {
+            position: relative;
+            bottom: 0;
+            right:0;
+            left:0;
         }
+        
 
-        footer {
-          background-color: #333;
-          color: #fff;
-          padding: 1rem;
-          text-align: center;
-        }
-
-        /* Add additional styling as needed */
       `}</style>
-
         </>
 
     )
