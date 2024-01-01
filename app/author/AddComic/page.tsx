@@ -38,7 +38,6 @@ const sectionStyles = {
     margin: '10px 60px 0 60px'
 };
 
-
 const AuthorPage = () => {
     
     const router = useRouter();
