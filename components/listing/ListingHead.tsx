@@ -41,7 +41,6 @@ function ListingHead({
           className="object-cover w-full"
         />
         <div className="absolute top-5 right-5">
-          <HeartButton comicId={id} currentUser={currentUser} />
         </div>
       </motion.div>
 

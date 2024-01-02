@@ -11,7 +11,14 @@ import getListChapter from "@/app/actions/getListChapterOfComic";
 interface IParams {
   comicId?: string;
 }
-
+const h1_style = {
+  display: 'flex',
+  margin: ' 30px 30px 30px 90px ',
+  padding: ' 30px 30px 30px 30px ',
+  fontFamily: 'Dancing Script, cursive, Lobster, sans-serif, Arial',
+  fontSize: '2rem',
+  color: 'rgb(235, 84, 96)',
+};
 const ComicPage = async ({ params }: { params: IParams }) => {
   const comicInfo = await getComicbyId(params);
   const currentUser = await getCurrentUser();
@@ -60,15 +67,12 @@ console.log(chapterInfo)
           </div>
         </div>
       </div>
-      <h1 style={{
- 
- alignItems: 'center',
- justifyContent: 'center',
- height: '100vh'
-}}>
- {title1}
-</h1>
+    
     </Container>
+    <h1 style={h1_style}>
+                        Danh sách các chương
+                    </h1>
+    <div style={h1_style}>
     {chapterInfo.map((list) => {
         return (
           <ChapterCard
@@ -76,8 +80,11 @@ console.log(chapterInfo)
             data={list}
             currentUser={currentUser}
           />
+        
         );
       })}
+
+    </div>
     </ClientOnly>
   
   );

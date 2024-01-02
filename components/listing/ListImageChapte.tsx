@@ -8,6 +8,9 @@ import { useRouter } from "next/navigation";
 import React, { useCallback, useMemo } from "react";
 import Button from "../Button";
 import HeartButton from "../HeartButton";
+const dhStyles = {
+  color:'white'
+};
 
 type Props = {
   data: SafeChapter;
@@ -18,7 +21,8 @@ type Props = {
   currentUser?: SafeUser | null;
 };
 
-function ChapterCard({
+
+function ListImageChapter({
   data,
   onAction,
   disabled,
@@ -37,45 +41,25 @@ function ChapterCard({
     },
     [onAction, actionId, disabled]
   );
-  let name = data.name
-  if(!name){
-    name = "NULL"
+  let src1 = data.imageurl
+  if(!src1){
+    src1 = "NULL"
   }
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{
-        duration: 0.8,
-        delay: 0.5,
-        ease: [0, 0.71, 0.2, 1.01],
-      }}
-      onClick={() => router.push(`/chapter/${data.id}`)}
-      className="col-span-1 cursor-pointer group"
-    >
+    <div
+      className="col-span-1 cursor-pointer group">
       <div className="flex flex-col gap-2 w-full">
-        <div className="pl-8 font-light text-neutral-500">
-          {data.name}
-         \
-        </div>
-        <br/>
-        <br/>
-        <div className="flex flex-row items-center gap-">
-          <div className="flex gap-1 font-semibold">
-          </div>
-        </div>
-        {onAction && actionLabel && (
-          <Button
-            disabled={disabled}
-            small
-            label={actionLabel}
-            onClick={handleCancel}
+        <div className="aspect-square w-full relative overflow-hidden rounded-xl" >
+          <Image
+            fill
+            className="object-cover h-full w-full"
+            src={src1}
+            alt="listing"
           />
-        )}
+        </div>
       </div>
-    </motion.div>
+    </div>
   );
-
 }
 
-export default ChapterCard;
+export default ListImageChapter;

@@ -1,16 +1,18 @@
 import prisma from "@/lib/prismadb";
+import getCurrentUser from "./getCurrentUser";
 
 export interface IParams {
-  authorId?: string;
+  authorId: string;
 }
 
 export default async function getComicAuthor(params: IParams) {
   try {
     const { authorId } = params;
-
+    const user = await getCurrentUser()
+    const authorId1 =  user?.id
     const comicinfo = await prisma.comic.findMany({
       where: {
-        authorId
+        authorId:authorId1
       }
     });
 

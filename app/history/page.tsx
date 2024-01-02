@@ -32,9 +32,7 @@ const Historypage = async (props: Props) => {
               <h1 style={h1_style}>Lịch sử: </h1>
 
         <EmptyState
-          title="No follow comic found"
-          subtitle="Looks like you have follow listings."
-        />
+          title="No comic found in your history"        />
       </ClientOnly>
     );
   }

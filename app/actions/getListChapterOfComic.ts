@@ -9,13 +9,10 @@ export default async function getListChapter(params:IdChapterList) {
         const 
            { comicId}
          = params;
-    
-    let query : any = {};
-    if(comicId){
-        query.comicId = comicId
-    }
     const ListComic = await prisma.chapter.findMany({
-        where:query,
+        where:{
+            comicId:comicId
+        },
         orderBy:{
             createdAt:"desc"
         }
